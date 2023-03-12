@@ -1,0 +1,6 @@
+{
+	"appId": "io.ionic.starter",
+	"appName": "aroma-oleos-essesciais-frontend",
+	"webDir": "www",
+	"bundledWebRuntime": false
+}

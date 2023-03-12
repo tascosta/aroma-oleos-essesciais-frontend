@@ -1,0 +1,7 @@
+{
+  "name": "aroma-oleos-essesciais-frontend",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
