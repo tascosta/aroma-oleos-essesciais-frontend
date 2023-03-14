@@ -10,7 +10,7 @@ import { DataService, Message } from '../services/data.service';
 })
 export class HomePage {
   constructor(private data: DataService) { }
-
+  customColor: string = '#66CDAA';
   refresh(ev: any) {
     setTimeout(() => {
       (ev as RefresherCustomEvent).detail.complete();

@@ -2,11 +2,11 @@ import { Component, Input } from '@angular/core';
 import { Message } from '../services/data.service';
 
 @Component({
-  selector: 'app-message',
-  templateUrl: './message.component.html',
-  styleUrls: ['./message.component.scss'],
+  selector: 'app-detalhe',
+  templateUrl: './detalhe.component.html',
+  styleUrls: ['./detalhe.component.scss'],
 })
-export class MessageComponent {
+export class DetalheComponent {
   @Input() message?: Message;
 
   isIos() {

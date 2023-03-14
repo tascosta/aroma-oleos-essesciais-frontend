@@ -1,0 +1,36 @@
+.centralizar {
+  width: 50%;
+  margin: 80px auto;
+}
+.titulo{
+  text-align: center;
+  color: #66CDAA;
+}
+
+.espacamento{
+margin-top: 20px;
+}
+
+.right-align {
+  float: right;
+  margin-top: 60px;
+}
+
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #f5f5f5;
+  color: #333;
+  text-align: center;
+  padding: 15px;
+}
+
+.header{
+  text-align: center;
+}
+
+.toolbar-background{
+	background-color:red !important;
+}

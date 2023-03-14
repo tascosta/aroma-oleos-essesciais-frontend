@@ -1,11 +1,11 @@
-<ion-item *ngIf="message" [routerLink]="'/message/' + message.id" [detail]="false">
+<ion-item *ngIf="message" [routerLink]="'/detalhe/' + message.id" [detail]="false">
   <div slot="start" [class]="!message.read ? 'dot dot-unread' : 'dot'"></div>
   <ion-label class="ion-text-wrap">
     <h2>
       {{ message.fromName }}
       <span class="date">
         <ion-note>{{ message.date }}</ion-note>
-        <ion-icon aria-hidden="true" name="chevron-forward" size="small" *ngIf="isIos()"></ion-icon>
+        <!-- <ion-icon aria-hidden="true" name="chevron-forward" size="small" *ngIf="isIos()"></ion-icon> -->
       </span>
     </h2>
     <h3>{{ message.subject }}</h3>

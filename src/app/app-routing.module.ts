@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { FormCadastroComponent } from './form-cadastro/form-cadastro.component';
 
 const routes: Routes = [
   {
@@ -7,8 +8,15 @@ const routes: Routes = [
     loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
   },
   {
-    path: 'message/:id',
-    loadChildren: () => import('./view-message/view-message.module').then( m => m.ViewMessagePageModule)
+    path: 'detalhe/:id',
+    loadChildren: () => import('./detalhe-oleo/detalhe-oleo.module').then( m => m.DetalheOleoPageModule)
+  },
+  {
+    path: 'cadastro',
+    loadChildren: () => import('./form-cadastro/form-cadastro.module').then( m => m.FormCadastroModule)
+  },
+  {
+    path: 'cadastro', component:FormCadastroComponent
   },
   {
     path: '',

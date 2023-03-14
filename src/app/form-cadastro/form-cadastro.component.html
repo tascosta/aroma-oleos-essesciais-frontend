@@ -1,0 +1,51 @@
+<form [formGroup]="oleosFormGroup">
+
+  <ion-content [fullscreen]="true">
+    <ion-header [translucent]="true" class="header">
+      <ion-toolbar >
+        <ion-title class="titulo">
+          Cadastro de Óleos essenciais
+        </ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-grid class="centralizar">
+      <ion-row>
+        <ion-col>
+          <ion-item>
+            <ion-label position="floating">Nome</ion-label>
+            <ion-input placeholder="Nome" id="propriedades" formControlName="propriedades"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-item>
+            <ion-label position="floating">Propriedades</ion-label>
+            <ion-textarea placeholder="Propriedades" id="propriedades" formControlName="propriedades"></ion-textarea>
+          </ion-item>
+
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-item>
+            <ion-label position="floating">Como usar</ion-label>
+            <ion-textarea placeholder="Como usar" id="comoUsar" formControlName="comoUsar"></ion-textarea>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+
+    </ion-grid>
+    <ion-footer class="footer">
+        <ion-grid>
+          <ion-row>
+            <ion-col>
+              <ion-button color="medium" href="/home">Voltar</ion-button>
+              <ion-button (click)="salvar()">Salvar</ion-button>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+   
+    </ion-footer>
+  </ion-content>
+</form>
