@@ -4,5 +4,17 @@
 
 .titulo{
  margin-top: 15px;
- color: #66CDAA;
+ color: #5F9EA0;
+}
+
+.imgHome {
+  display: block;
+  margin: 0 auto;
+  max-width: 100%;
+  height: auto;
+}
+
+ion-button {
+  --background: #5F9EA0;
+  --color: #fff;
 }

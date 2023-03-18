@@ -7,16 +7,14 @@ const routes: Routes = [
     path: 'home',
     loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
   },
-  {
-    path: 'detalhe/:id',
-    loadChildren: () => import('./detalhe-oleo/detalhe-oleo.module').then( m => m.DetalheOleoPageModule)
-  },
+
   {
     path: 'cadastro',
     loadChildren: () => import('./form-cadastro/form-cadastro.module').then( m => m.FormCadastroModule)
   },
   {
-    path: 'cadastro', component:FormCadastroComponent
+    path: 'cadastro/:editar/:_id',
+    loadChildren: () => import('./form-cadastro/form-cadastro.module').then( m => m.FormCadastroModule)
   },
   {
     path: '',

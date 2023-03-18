@@ -2,7 +2,7 @@
   <ion-toolbar>
     <ion-title class="titulo">
       Aroma - Óleos Essenciais
-      <ion-button class="right-align" href="/cadastro">Novo</ion-button>
+      <ion-button class="right-align" href="/cadastro" >Novo</ion-button>
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -13,8 +13,8 @@
   </ion-refresher>
 
 
+  <img decoding="async" src="assets/img/essential-oils.jpg" height="550px" width="650px"class="imgHome" title="Aroma" style="margin-top: 50px;">
 
-  <ion-list>
-    <app-detalhe *ngFor="let message of getMessages()" [message]="message"></app-detalhe>
-  </ion-list>
+  <app-detalhe></app-detalhe>
+
 </ion-content>

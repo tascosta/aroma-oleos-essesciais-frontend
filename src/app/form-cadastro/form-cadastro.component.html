@@ -4,7 +4,7 @@
     <ion-header [translucent]="true" class="header">
       <ion-toolbar >
         <ion-title class="titulo">
-          Cadastro de Óleos essenciais
+         {{editarOleo === false? 'Cadastre um novo Óleo Essencial'  : 'Editar Óleo Essencial'}}
         </ion-title>
       </ion-toolbar>
     </ion-header>
@@ -13,15 +13,15 @@
         <ion-col>
           <ion-item>
             <ion-label position="floating">Nome</ion-label>
-            <ion-input placeholder="Nome" id="propriedades" formControlName="propriedades"></ion-input>
+            <ion-input placeholder="Nome" id="propriedades" formControlName="nome"></ion-input>
           </ion-item>
         </ion-col>
       </ion-row>
       <ion-row>
         <ion-col>
           <ion-item>
-            <ion-label position="floating">Propriedades</ion-label>
-            <ion-textarea placeholder="Propriedades" id="propriedades" formControlName="propriedades"></ion-textarea>
+            <ion-label position="floating">Descrição</ion-label>
+            <ion-textarea placeholder="Descrição" id="descricao" formControlName="descricao" rows="6" cols="20"></ion-textarea>
           </ion-item>
 
         </ion-col>
@@ -30,7 +30,8 @@
         <ion-col>
           <ion-item>
             <ion-label position="floating">Como usar</ion-label>
-            <ion-textarea placeholder="Como usar" id="comoUsar" formControlName="comoUsar"></ion-textarea>
+         
+            <ion-textarea placeholder="Como usar" id="comoUsar" formControlName="comoUsar"  rows="6" cols="20" ></ion-textarea>
           </ion-item>
         </ion-col>
       </ion-row>
@@ -41,7 +42,7 @@
           <ion-row>
             <ion-col>
               <ion-button color="medium" href="/home">Voltar</ion-button>
-              <ion-button (click)="salvar()">Salvar</ion-button>
+              <ion-button (click)="acao()" class="botao">Salvar</ion-button>
             </ion-col>
           </ion-row>
         </ion-grid>

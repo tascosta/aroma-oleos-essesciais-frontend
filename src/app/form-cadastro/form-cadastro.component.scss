@@ -4,7 +4,7 @@
 }
 .titulo{
   text-align: center;
-  color: #66CDAA;
+  color: #5F9EA0;
 }
 
 .espacamento{
@@ -31,6 +31,7 @@ margin-top: 20px;
   text-align: center;
 }
 
-.toolbar-background{
-	background-color:red !important;
+ion-button {
+  --background: #5F9EA0;
+  --color: #fff;
 }

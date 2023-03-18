@@ -57,3 +57,29 @@ ion-footer ion-title {
   font-size: 11px;
   font-weight: normal;
 }
+
+table {
+  width: 80%;
+  border-collapse: collapse;
+  background-color: #fff;
+  color: #333;
+  font-size: 16px;
+  margin: 25px 125px 55px 130px;
+}
+
+th, td {
+  border: 1px solid #5F9EA0;
+  padding: 10px;
+}
+
+th {
+  background-color: #5F9EA0;
+  font-weight: bold;
+  text-align: center;
+  color: #fff;
+}
+
+.ion{
+  cursor: pointer;
+  color: #5F9EA0;
+}
