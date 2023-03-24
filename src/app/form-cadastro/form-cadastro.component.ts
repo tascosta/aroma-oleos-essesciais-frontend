@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
@@ -14,7 +14,7 @@ import { Oleo } from '../view-models/oleo.viewmodel';
 export class FormCadastroComponent implements OnInit {
 
   constructor(private _formBuider: FormBuilder, private oleoService: OleoService, private route: ActivatedRoute,
-    private alertController: AlertController, private router: Router) { }
+    private alertController: AlertController, private router: Router,private el: ElementRef) { }
 
   oleosFormGroup = this._formBuider.group({
     _id: [''],
@@ -60,7 +60,7 @@ export class FormCadastroComponent implements OnInit {
       this.presentAlert('Cadastro realizado com sucesso!');
     },
       (error) => {
-        console.log(error);
+        this.presentAlert(error.message);
       });
   }
 
@@ -91,8 +91,7 @@ export class FormCadastroComponent implements OnInit {
       this.presentAlert('Edição realizada com sucesso!');
     },
       (error) => {
-        this.exibirMensagemSucesso = false;
-        this.exibirMensagemErro = true;
+        this.presentAlert(error.message);
       });
   }
 
@@ -114,6 +113,23 @@ export class FormCadastroComponent implements OnInit {
 
   redirecionarPagina() {
     this.router.navigate(['/home']);
+  }
+
+
+  validarCampos() {
+    let dados = this.oleosFormGroup.getRawValue();
+  
+    let valid = false;
+    if (!valid) {
+      const invalidControl = this.el.nativeElement.querySelector('textarea.ng-invalid,input.ng-invalid,input.ion-invalid,textarea.ion-invalid');
+      if (invalidControl) {
+        invalidControl.focus();
+      }
+      return false;
+    } else {
+
+      return false;
+    }
   }
 }
 

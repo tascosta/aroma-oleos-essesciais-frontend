@@ -34,7 +34,6 @@ export class DetalheComponent {
   excluirOleo(id: any) {
     this.oleoService.deletar(`/${id}`).subscribe(
       data => {
-        console.log(data)
         this.presentAlert();
       }
     );
