@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component,ViewChild } from '@angular/core';
 import { RefresherCustomEvent } from '@ionic/angular';
+import { DetalheComponent } from '../detalhe/detalhe.component';
 
 import { OleoService } from '../services/oleo.service';
 import { Oleo } from '../view-models/oleo.viewmodel';
@@ -13,6 +14,7 @@ export class HomePage {
   constructor(private oleoService: OleoService) { }
   customColor: string = '#66CDAA';
   oleos: any;
+  @ViewChild(DetalheComponent) detalheComponent!: DetalheComponent;
   refresh(ev: any) {
     setTimeout(() => {
       (ev as RefresherCustomEvent).detail.complete();
@@ -20,15 +22,7 @@ export class HomePage {
   }
 
   ngOnInit() {
-    this.obterOleos();
+
    }
    
-  obterOleos() {
-    this.oleoService.get().subscribe(
-      data => {
-        this.oleos = data as Oleo;
-      }
-    );
-  }
-
 }

@@ -14,7 +14,7 @@ import { Oleo } from '../view-models/oleo.viewmodel';
 export class FormCadastroComponent implements OnInit {
 
   constructor(private _formBuider: FormBuilder, private oleoService: OleoService, private route: ActivatedRoute,
-    private alertController: AlertController, private router: Router,private el: ElementRef) { }
+    private alertController: AlertController, private router: Router, private el: ElementRef) { }
 
   oleosFormGroup = this._formBuider.group({
     _id: [''],
@@ -25,6 +25,7 @@ export class FormCadastroComponent implements OnInit {
 
   customColor: string = '#66CDAA';
   oleo: any;
+  oleos: any;
   exibirMensagens = false;
   exibirMensagemSucesso = false;
   exibirMensagemAlerta = true;
@@ -40,8 +41,7 @@ export class FormCadastroComponent implements OnInit {
     });
 
     if (this.editarOleo) {
-      this.obterOleos();
-
+      this.obterOleo();
     }
   }
 
@@ -57,14 +57,15 @@ export class FormCadastroComponent implements OnInit {
     let dados = this.oleosFormGroup.getRawValue();
     this.oleoService.post(dados).subscribe((response: any) => {
       this.oleo = response;
-      this.presentAlert('Cadastro realizado com sucesso!');
+      this.presentAlert('Obrigado!', ['Cadastro realizado com sucesso!']);
     },
       (error) => {
-        this.presentAlert(error.message);
+        const messages = error.error.message;
+        this.presentAlert('Erro!', messages);
       });
   }
 
-  obterOleos() {
+  obterOleo() {
     this.oleoService.getId(`/${this.id}`).subscribe(
       data => {
         this.oleo = data as Oleo;
@@ -88,19 +89,20 @@ export class FormCadastroComponent implements OnInit {
     let dados = this.oleosFormGroup.getRawValue();
     this.oleoService.put(dados).subscribe((response: any) => {
       this.oleo = response;
-      this.presentAlert('Edição realizada com sucesso!');
+      this.presentAlert('Obrigado!', ['Edição realizada com sucesso!']);
     },
       (error) => {
-        this.presentAlert(error.message);
+        const messages = error.error.message;
+        this.presentAlert('Erro!', messages);
       });
   }
 
-  async presentAlert( header: string) {
+  async presentAlert(header: string, messages: string[] = []) {
+    const message = messages.join(',\n ');
     const alert = await this.alertController.create({
       header: header,
-      // subHeader: 'Important message',
-      message: 'Obrigado!',
-      buttons: ['OK'],
+      message: message,
+      buttons: ['OK']
     });
 
     await alert.present();
@@ -112,13 +114,20 @@ export class FormCadastroComponent implements OnInit {
   }
 
   redirecionarPagina() {
-    this.router.navigate(['/home']);
+    this.router.navigate(['/home'])
   }
 
+  obterTodosOleos() {
+    this.oleoService.get().subscribe(
+      data => {
+        this.oleos = data as Oleo;
+      }
+    );
+  }
 
   validarCampos() {
     let dados = this.oleosFormGroup.getRawValue();
-  
+
     let valid = false;
     if (!valid) {
       const invalidControl = this.el.nativeElement.querySelector('textarea.ng-invalid,input.ng-invalid,input.ion-invalid,textarea.ion-invalid');

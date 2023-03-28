@@ -1,6 +1,7 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
+import { EventEmitter } from 'stream';
 import { OleoService } from '../services/oleo.service';
 import { Oleo } from '../view-models/oleo.viewmodel';
 
@@ -14,13 +15,17 @@ export class DetalheComponent {
 
   oleos: any;
   roleMessage = '';
+
   isIos() {
     const win = window as any;
     return win && win.Ionic && win.Ionic.mode === 'ios';
   }
 
   ngOnInit() {
-    this.obterOleos();
+    setTimeout(() => {
+      this.obterOleos();
+    }, 500);
+
   }
 
   obterOleos() {
@@ -29,6 +34,7 @@ export class DetalheComponent {
         this.oleos = data as Oleo;
       }
     );
+    console.log('aqui!!!!!');
   }
 
   excluirOleo(id: any) {
@@ -66,8 +72,8 @@ export class DetalheComponent {
 
   async presentAlert() {
     const alert = await this.alertController.create({
-      header: 'Oleo excluído com sucesso!',
-      // subHeader: 'Important message',
+      header: 'Obrigado!',
+      subHeader: 'Oleo excluído com sucesso!',
       message: 'Obrigado!',
       buttons: ['OK'],
     });
