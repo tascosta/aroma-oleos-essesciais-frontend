@@ -24,19 +24,14 @@ export class DetalheComponent {
   ngOnInit() {
     setTimeout(() => {
       this.obterOleos();
-    }, 500);
+    }, 300);
 
   }
 
-  obterOleos() {
-    this.oleoService.get().subscribe(
-      data => {
-        this.oleos = data as Oleo;
-      }
-    );
-    console.log('aqui!!!!!');
+  async obterOleos() {
+    this.oleos = await this.oleoService.get().toPromise();
   }
-
+  
   excluirOleo(id: any) {
     this.oleoService.deletar(`/${id}`).subscribe(
       data => {

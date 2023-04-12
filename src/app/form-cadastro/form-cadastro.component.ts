@@ -39,7 +39,7 @@ export class FormCadastroComponent implements OnInit {
       this.editarOleo = !!params['editar'];
       this.id = params['_id'];
     });
-
+    console.log(this.editarOleo)
     if (this.editarOleo) {
       this.obterOleo();
     }
@@ -109,12 +109,19 @@ export class FormCadastroComponent implements OnInit {
 
     await alert.onDidDismiss().then(() => {
       this.oleosFormGroup.reset();
-      this.redirecionarPagina();
+      this.recarregarPagina();
     });
   }
 
-  redirecionarPagina() {
-    this.router.navigate(['/home'])
+  recarregarPagina() {
+    if (this.editarOleo) {
+      setTimeout(() => {
+        window.location.reload();
+      }, 50);
+      this.router.navigate(['/home']);
+    } else {
+      window.location.reload();
+    }
   }
 
   obterTodosOleos() {
