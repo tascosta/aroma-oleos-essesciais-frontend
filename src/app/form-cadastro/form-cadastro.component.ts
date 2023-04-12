@@ -98,7 +98,7 @@ export class FormCadastroComponent implements OnInit {
   }
 
   async presentAlert(header: string, messages: string[] = []) {
-    const message = messages.join(',\n ');
+    const message = messages.join(',\n');
     const alert = await this.alertController.create({
       header: header,
       message: message,
@@ -115,10 +115,7 @@ export class FormCadastroComponent implements OnInit {
 
   recarregarPagina() {
     if (this.editarOleo) {
-      setTimeout(() => {
-        window.location.reload();
-      }, 50);
-      this.router.navigate(['/home']);
+      window.location.href = "/home";
     } else {
       window.location.reload();
     }

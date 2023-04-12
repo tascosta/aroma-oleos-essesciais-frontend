@@ -24,11 +24,12 @@ export class DetalheComponent {
   ngOnInit() {
     setTimeout(() => {
       this.obterOleos();
-    }, 300);
+    }, 500);
 
   }
 
   async obterOleos() {
+    console.log('aqui porrA')
     this.oleos = await this.oleoService.get().toPromise();
   }
   
