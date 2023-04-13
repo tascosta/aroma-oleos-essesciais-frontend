@@ -6,10 +6,17 @@ import { RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 
 import { DetalheComponent } from './detalhe.component';
+import {MatTableModule} from '@angular/material/table';
 
 @NgModule({
-  imports: [ CommonModule, FormsModule, IonicModule, RouterModule],
+  imports: [
+    CommonModule,
+    FormsModule,
+    IonicModule,
+    RouterModule,
+    MatTableModule,
+  ],
   declarations: [DetalheComponent],
   exports: [DetalheComponent]
 })
-export class DetalheComponentModule {}
+export class DetalheComponentModule { }

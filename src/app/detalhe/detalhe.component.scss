@@ -1,79 +1,17 @@
-ion-item {
-  --padding-start: 0;
-  --inner-padding-end: 0;
-}
-
-ion-label {
-  margin-top: 12px;
-  margin-bottom: 12px;
-}
-
-ion-item h2 {
-  font-weight: 600;
-  margin: 0;
-}
-
-ion-item p {
-  text-overflow: ellipsis;
-  overflow: hidden;
-  white-space: nowrap;
-  width: 95%;
-}
-
-ion-item .date {
-  float: right;
-  align-items: center;
-  display: flex;
-}
-
-ion-item ion-icon {
-  color: #c9c9ca;
-}
-
-ion-item ion-note {
-  font-size: 15px;
-  margin-right: 8px;
-  font-weight: normal;
-}
-
-ion-item ion-note.md {
-  margin-right: 14px;
-}
-
-.dot {
-  display: block;
-  height: 12px;
-  width: 12px;
-  border-radius: 50%;
-  align-self: start;
-  margin: 16px 10px 16px 16px;
-}
-
-.dot-unread {
-  background: var(--ion-color-primary);
-}
-
-ion-footer ion-title {
-  font-size: 11px;
-  font-weight: normal;
-}
-
 table {
   width: 80%;
   border-collapse: collapse;
   background-color: #fff;
   color: #333;
   font-size: 16px;
-  margin: 25px 125px 55px 130px;
 }
 
 th, td {
-  border: 1px solid #5F9EA0;
   padding: 10px;
 }
 
 th {
-  background-color: #5F9EA0;
+  background-color: #5F9EA0 !important;
   font-weight: bold;
   text-align: center;
   color: #fff;
@@ -82,4 +20,14 @@ th {
 .ion{
   cursor: pointer;
   color: #5F9EA0;
+}
+
+.table-container {
+  height: 100%;
+  width: 80%;
+}
+
+ion-content div {
+  max-width: 1200px; 
+  margin: 0 auto; 
 }

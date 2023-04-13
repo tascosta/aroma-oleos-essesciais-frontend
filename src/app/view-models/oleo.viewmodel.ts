@@ -1,7 +1,7 @@
 
 
 export interface Oleo {
-  id: string;
+  _id: string;
   nome: string;
   descricao:number;
   comoUsar:string;

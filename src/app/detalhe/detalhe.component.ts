@@ -13,8 +13,9 @@ import { Oleo } from '../view-models/oleo.viewmodel';
 export class DetalheComponent {
   constructor(private oleoService: OleoService, private alertController: AlertController, private router: Router) { }
 
-  oleos: any;
+  oleos: Oleo[] = [];
   roleMessage = '';
+  displayedColumns=['nome','descricao','comoUsar','acao']
 
   isIos() {
     const win = window as any;
@@ -30,7 +31,7 @@ export class DetalheComponent {
 
   async obterOleos() {
     console.log('aqui porrA')
-    this.oleos = await this.oleoService.get().toPromise();
+    this.oleos = await this.oleoService.get().toPromise() as Oleo[];;
   }
   
   excluirOleo(id: any) {
